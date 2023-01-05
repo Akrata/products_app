@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:products_app/ui/input_decorations.dart';
 import 'package:products_app/widgets/widgets.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -57,26 +58,42 @@ class _LoginForm extends StatelessWidget {
             TextFormField(
               autocorrect: false,
               keyboardType: TextInputType.emailAddress,
-              decoration: InputDecoration(
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.deepPurple),
-                  ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.deepPurple,
-                      width: 2,
-                    ),
-                  ),
-                  hintText: 'john.doe@gmail.com',
-                  labelText: 'Correo electronico',
-                  labelStyle: TextStyle(
-                    color: Colors.grey,
-                  ),
-                  prefixIcon: Icon(
-                    Icons.alternate_email_sharp,
-                    color: Colors.deepPurple,
-                  )),
+              decoration: InputDecorations.authInputDecoration(
+                  hintText: 'Jhon.doe@gmail.com',
+                  labelText: 'Correo',
+                  prefixIcon: Icons.alternate_email_sharp),
             ),
+            SizedBox(
+              height: 30,
+            ),
+            TextFormField(
+              autocorrect: false,
+              obscureText: true,
+              keyboardType: TextInputType.visiblePassword,
+              decoration: InputDecorations.authInputDecoration(
+                  hintText: "******",
+                  labelText: 'Password',
+                  prefixIcon: Icons.lock_outline),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            MaterialButton(
+              onPressed: () {},
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              disabledColor: Colors.grey,
+              elevation: 0,
+              color: Colors.deepPurple,
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 80, vertical: 15),
+                child: Text(
+                  'Ingresar',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            )
           ],
         ),
       ),
